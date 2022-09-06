@@ -28,7 +28,7 @@ app.get("/rank", async (req, res) => {
 app.post("/wpm", async (req, res) => {
     const { wpms } = req.wpm;
     sequelize.query(`INSERT INTO scores (wpm) 
-        VALUES (${wpm})`);
+        VALUES (${wpms})`);
 })
     .then(() => {
         res.sendStatus(200);
