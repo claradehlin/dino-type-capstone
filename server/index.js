@@ -9,13 +9,6 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static(path.resolve(__dirname, "../build")));
 
-app.get(`/api/info`, async (req, res) => {
-    let info = await sequelize.query(`
-    SELECT * FROM scores
-    `);
-    res.status(200).send(info[0]);
-});
-
 app.get("/rank", async (req, res) => {
     sequelize
         .query(`SELECT * FROM scores ORDER BY wpm DESC LIMIT 5`)
@@ -27,13 +20,16 @@ app.get("/rank", async (req, res) => {
 
 app.post("/wpm", async (req, res) => {
     const { wpms } = req.wpm;
-    sequelize.query(`INSERT INTO scores (wpm) 
-        VALUES (${wpms})`);
-})
-    .then(() => {
-        res.sendStatus(200);
-    })
-    .catch((err) => console.log(err));
+    sequelize
+        .query(
+            `INSERT INTO scores (wpm) 
+        VALUES (${wpms})`
+        )
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((err) => console.log(err));
+});
 
 app.get("/*", function (req, res) {
     res.sendFile(path.join(__dirname, "../build", "index.html"));
