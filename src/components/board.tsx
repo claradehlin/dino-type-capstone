@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import '../stylesheets/Board.scss'
-import Profiles from './profiles.js'
 
 export default function Board() {
 
@@ -30,8 +29,6 @@ export default function Board() {
                     )
                 })}
             </div>
-
-            <Profiles></Profiles>
 
         </div>
     )
