@@ -1,3 +1,4 @@
+import axios from "axios";
 import { resetTest } from "helpers/resetTest";
 import { useSelector } from "react-redux";
 import { State } from "store/reducer";
@@ -17,6 +18,11 @@ export default function Result() {
         if (r) correctChars += wordList[idx].length;
     });
     const wpm = ((correctChars + spaces) * 60) / timeLimit / 5;
+
+    axios.post("https://dino-type.herokuapp.com/wpm", wpm).then(() => {
+        alert("Added to Leaderboard!")
+    })
+
     return (
         <div className="result">
             <table>
