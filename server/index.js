@@ -19,6 +19,11 @@ app.get(`/api/info`, async (req, res) => {
 
 app.get('/rank', async (req, res) => {
     sequelize.query(`SELECT * FROM scores ORDER BY wpm DESC LIMIT 5`)
+    .then((dbRes) => {
+        res.status(200)
+    .send(dbRes)
+    })
+    .catch((err)=> console.log(err))
 })
 
 app.get('/*', function(req, res) {
