@@ -11,13 +11,9 @@ export default function Board() {
     useEffect(() => {
         axios.get("https://dino-type.herokuapp.com/rank").then((res) => {
             setScores(res.data[0])
+            console.log(res.data[0])
         })
     }, []);
-
-
-    const handleClick = (e: any) => {
-        console.log(e.target)
-    }
     
     return(
         <div className="board">
