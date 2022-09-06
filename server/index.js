@@ -17,6 +17,10 @@ app.get(`/api/info`, async (req, res) => {
     res.status(200).send(info[0])
 })
 
+app.get('/rank', async (req, res) => {
+    sequelize.query(`SELECT * FROM scores ORDER BY wpm DESC LIMIT 5`)
+})
+
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, '../build', 'index.html'));
 })
