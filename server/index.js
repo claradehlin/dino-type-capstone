@@ -2,9 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-require('dotenv').config();
-const PORT = process.env.PORT || 4000;
-const sequelize = require('./sequelize')
+const {PORT} = process.env;
+const sequelize = require('./sequelize');
 
 
 app.use(express.json());
