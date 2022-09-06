@@ -19,9 +19,9 @@ export default function Result() {
     });
     const wpm = ((correctChars + spaces) * 60) / timeLimit / 5;
 
-    axios.post("https://dino-type.herokuapp.com/wpm", wpm).then(() => {
-        alert("Added to Leaderboard!")
-    })
+    // axios.post("https://dino-type.herokuapp.com/wpm", wpm).then(() => {
+    //     alert("Added to Leaderboard!")
+    // })
 
     return (
         <div className="result">
