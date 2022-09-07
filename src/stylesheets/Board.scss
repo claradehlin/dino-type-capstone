@@ -1,4 +1,7 @@
 .board{
 margin: 5em;
-background-color:whitesmoke
+background-color:whitesmoke;
+border-style: solid;
+border-color: (--fg-color);
+border-width: 2em;
 }
