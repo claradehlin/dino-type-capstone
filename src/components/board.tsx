@@ -20,7 +20,7 @@ export default function Board() {
                 {scores.map((score: any) => {
                     return (
                         <div key={score.id}>
-                            <h4 className="rank">{score.id} {score.wpm}</h4>
+                            <h4 className="rank">{score.id} "-" {score.wpm} "wpm" </h4>
                         </div>
                     );
                 })}
