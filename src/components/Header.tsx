@@ -34,7 +34,7 @@ export const options: Options = {
         "ocean",
         "desert"
     ],
-    type: ["words", "sentences", "numbers"],
+    type: ["words", "sentences"],
 };
 
 export default function Header() {
